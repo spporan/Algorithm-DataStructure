@@ -8,7 +8,7 @@ fun main(args:Array<String>){
 
     print("Which number you want search? :")
     var key= readLine()!!.toInt()
-    if(linearSearch(array,key)==1)
+    if(linearSearch(array,key)!=null)
         print("Found $key")
     else
         print("Not found")
@@ -20,16 +20,15 @@ key=5
 
 
 
-fun linearSearch(arr:Array<Int>,key:Int):Int{
+fun linearSearch(arr:Array<Int>,key:Int):Int?{
     var n=arr.size
-    var found=-1
+
     for(i in 0 until n)
-        found = if (arr[i]==key)
-            1
-        else
-            -1
+        if (arr[i] == key)
+            return i
 
 
 
-   return found
+return null
+
 }
